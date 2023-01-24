@@ -1,6 +1,9 @@
 <?php require "../includes/header.php"?>
 <?php require "../config/config.php" ?>
 <?php 
+if(isset($_SESSION["username"])){
+  die("{$_SESSION['username']} is logged in ");
+}
   if(isset($_POST["submit"])){
     if($_POST['email'] == '' or $_POST['password'] == ''){
     echo "input must be compeleted";
@@ -16,7 +19,7 @@
     if($query->rowCount() > 0){
       if(password_verify($password, $row["password"])){
         $_SESSION["username"] = $row['username'];
-
+        $_SESSION["user_id"] = $row['Id'];
         header("location: http://localhost/Blog/index.php");
       }
     }
