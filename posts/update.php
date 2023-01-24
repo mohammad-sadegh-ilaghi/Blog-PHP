@@ -37,7 +37,9 @@ if(isset($_POST["submit"]) and isset($_GET['id'])){
                 ':user_id' => $user_id,
             ]);
         } else {
-
+            $query_img = $conn->query("SELECT img FROM post WHERE Id = {$id}");
+            $query_img->execute();
+            $img_url = $query_img->fetch(PDO::FETCH_COLUMN);  
             $query = $conn->prepare("UPDATE post SET title = :title, subtitle = :subtitle, body = :body, img =:img, user_id =:user_id
                                 WHERE id = $id");
             $result =  $query->execute([
@@ -47,6 +49,7 @@ if(isset($_POST["submit"]) and isset($_GET['id'])){
                 ':img' => $img,
                 ':user_id' => $user_id,
             ]);
+                
         }
             
         }catch(Exception $e){
@@ -54,11 +57,15 @@ if(isset($_POST["submit"]) and isset($_GET['id'])){
         }
                                   
         if($_FILES['image']['name'] != ''){
+            unlink("images/$img_url");
             move_uploaded_file($_FILES['image']['tmp_name'], $dir);
+            $conn->commit();
         }
-        $conn->commit();
-        header("location: http://localhost/Blog/index.php");
-
+        if($result){
+            
+            header("location: http://localhost/Blog/index.php");
+        }
+        
     
     }
 }
