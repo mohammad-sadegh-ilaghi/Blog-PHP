@@ -4,6 +4,12 @@
 $query = $conn->query("SELECT * FROM post");
 $query->execute();
 $posts = $query->fetchAll(PDO::FETCH_OBJ);
+
+$query_categories = $conn->query("SELECT * FROM category");
+$query_categories->execute();
+$categories = $query_categories->fetchAll(PDO::FETCH_OBJ);
+
+
 ?>
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -35,5 +41,19 @@ $posts = $query->fetchAll(PDO::FETCH_OBJ);
                     <!-- Pager-->
                     
                 </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <h1>Categories</h1>
+                <hr/>
+                <?php foreach($categories as $category) : ?>
+                    <div class="col-md-10 col-lg-6 ">
+                        <a href="categories/categoey.php?id=<?php echo $category->Id;?>">
+                            <div class="alert alert-dark text-white bg-dark text-center">
+                                
+                                <?php echo $category->name;?>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach;?>
             </div>
 <?php require "includes/footer.php"; ?>

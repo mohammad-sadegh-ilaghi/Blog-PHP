@@ -2,18 +2,26 @@
 <?php require "../includes/navbar.php" ?>
 
 <?php
+$query_categories = $conn->query("SELECT * FROM category");
+$query_categories->execute();
+$categories = $query_categories->fetchAll(PDO::FETCH_OBJ);
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $query = $conn->query("SELECT * FROM post WHERE id = $id");
     $query->execute();
     $post = $query->fetch(PDO::FETCH_OBJ);
+    if($post->user_id != $_SESSION['user_id']){
+        die("can not update this post because you not access to this post");
+    }
 }
 else{
     // die("not /founded");
 }
 if(isset($_POST["submit"]) and isset($_GET['id'])){
-    if($_POST["title"] == '' or $_POST["subtitle"] == '' or $_POST['body'] == '' and isset($_SESSION['username']) ){
+
+    if($_POST["title"] == '' or $_POST["subtitle"] == '' or $_POST['body'] == '' and isset($_SESSION['username']) 
+            or $_POST['category_id'] == '' ){
         echo "one of the inputs is empty";
     }
     else{
@@ -24,30 +32,33 @@ if(isset($_POST["submit"]) and isset($_GET['id'])){
         $img = $_FILES['image']['name'];
         $dir = './images/' . basename($img); 
         $user_id = $_SESSION['user_id'];
+        $cateoory_id = $_POST['category_id'];
         $conn->beginTransaction();
         try{
 
         if ($_FILES['image']['name'] == '') {
-            $query = $conn->prepare("UPDATE post SET title = :title, subtitle = :subtitle, body = :body, user_id =:user_id
+            $query = $conn->prepare("UPDATE post SET title = :title, subtitle = :subtitle, body = :body, user_id =:user_id, category_id = :category_id
             WHERE id = $id");
             $result =  $query->execute([
                 ':title' => $title,
                 ':subtitle' => $subtitle,
                 ':body' => $body, 
                 ':user_id' => $user_id,
+                ':category_id' => $cateoory_id
             ]);
         } else {
             $query_img = $conn->query("SELECT img FROM post WHERE Id = {$id}");
             $query_img->execute();
             $img_url = $query_img->fetch(PDO::FETCH_COLUMN);  
-            $query = $conn->prepare("UPDATE post SET title = :title, subtitle = :subtitle, body = :body, img =:img, user_id =:user_id
-                                WHERE id = $id");
+            $query = $conn->prepare("UPDATE post SET title = :title, subtitle = :subtitle, body = :body, img =:img, user_id =:user_id, category_id = :category_id
+                                WHERE id = $id");   
             $result =  $query->execute([
                 ':title' => $title,
                 ':subtitle' => $subtitle,
                 ':body' => $body, 
                 ':img' => $img,
                 ':user_id' => $user_id,
+                ':category_id' => $cateoory_id
             ]);
                 
         }
@@ -59,10 +70,10 @@ if(isset($_POST["submit"]) and isset($_GET['id'])){
         if($_FILES['image']['name'] != ''){
             unlink("images/$img_url");
             move_uploaded_file($_FILES['image']['tmp_name'], $dir);
-            $conn->commit();
+            
         }
         if($result){
-            
+            $conn->commit();
             header("location: http://localhost/Blog/index.php");
         }
         
@@ -117,7 +128,14 @@ elseif(!isset($_SESSION['username']) and isset($_POST["submit"]) ){
               <div class="form-outline mb-4">
                 <textarea type="text" name="body" id="form2Example1" class="form-control" placeholder="body" rows="8"><?php echo $post->body; ?></textarea>
             </div>
-
+            <div class="form-outline mb-4">
+                <select class="form-select" name="category_id" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <?php foreach($categories as $category) :?>
+                        <option value="<?php echo $category->Id; ?>"><?php echo $category->name;?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
               
              <div class="form-outline mb-4">
                 <input type="file" name="image" id="form2Example1" class="form-control" placeholder="image" />

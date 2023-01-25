@@ -42,7 +42,7 @@ else{
                         <p><?php echo $post -> body?></p>
                     </div>
                 </div>
-                <?php if(isset($_SESSION['username'])): ?>
+                <?php if(isset($_SESSION['username']) and $post->user_id == $_SESSION['user_id']): ?>
                 <div class="row">
                     <div class="col-3 offset-3">
                             <a href="update.php?id=<?php echo $post->Id; ?>" class="btn btn-warning text-center">Update
