@@ -39,6 +39,7 @@ session_start();
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="http://localhost/Blog/categories/categories.php">categories</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/Blog/auth/logout.php">logout</a></li>
                             </ul>
                         </li>
