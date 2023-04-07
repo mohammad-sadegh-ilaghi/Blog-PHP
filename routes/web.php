@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +18,6 @@ use App\Http\Controllers\TestController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [TestController::class,'show']);
+// Route::get('/', [TestController::class,'show']);
+Route::get('/contact',function(){ return  Inertia::render('contact');});
+

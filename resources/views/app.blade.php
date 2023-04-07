@@ -15,7 +15,7 @@
     @inertiaHead
   </head>
   <body>
-    @include('includes.header')
+    @include('includes.navbar')
     @inertia
 
     @include('includes.footer')
