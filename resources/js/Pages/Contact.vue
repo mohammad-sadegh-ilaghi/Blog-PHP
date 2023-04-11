@@ -1,5 +1,6 @@
 <template>
-    <div class="container px-4 px-lg-5">
+    <Header></Header>
+    <div class="container mx-4 px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as
@@ -73,5 +74,9 @@
 
 <!-- scripts -->
 <script setup>
+/**
+ * imports
+ */
+ import Header from '@/Components/Header.vue'
 
 </script>

@@ -1,5 +1,6 @@
 <template>
-    <form method="POST" action="" enctype="multipart/form-data">
+    <Header></Header>
+    <form method="POST" action="" class="conatiner mx-4" enctype="multipart/form-data">
         <!-- Email input -->
         <div class="form-outline mb-4">
             <input type="text" name="name" value="<?php echo $category->name;?>" class="form-control"
@@ -16,5 +17,10 @@
 
 <!-- scripts -->
 <script setup>
+/**
+ * imports
+ */
+ import Header from '@/Components/Header.vue'
 
-</script>
+
+</script>          

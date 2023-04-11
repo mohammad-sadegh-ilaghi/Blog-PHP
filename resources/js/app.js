@@ -1,6 +1,8 @@
+
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import '../css/styles.css'
+
 
 createInertiaApp({
   resolve: name => {
@@ -13,3 +15,4 @@ createInertiaApp({
       .mount(el)
   },
 })
+

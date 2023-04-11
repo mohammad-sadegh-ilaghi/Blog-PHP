@@ -14,10 +14,9 @@
     @vite('resources/js/app.js')
     @inertiaHead
   </head>
-  <body>
+  <body >
     @include('includes.navbar')
     @inertia
-
     @include('includes.footer')
             <!-- Bootstrap core JS-->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

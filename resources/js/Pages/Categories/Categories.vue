@@ -1,4 +1,5 @@
 <template>
+    <Header ></Header>
     <div class="row ">
         <a class="btn btn-primary" href="create.php">create</a>
     </div>
@@ -16,6 +17,7 @@
             <tr>
                 <td>
                     <!-- <php echo $category['name']; ?></td> -->
+                </td>
                 <td>
                     <a href="delete.php?id=<?php echo $category['Id'];?>" class="btn btn-outline-danger">delete</a>
                 </td>
@@ -31,5 +33,10 @@
 
 <!-- scripts -->
 <script setup>
+/**
+ * imports
+ */
+ import Header from '@/Components/Header.vue'
+
 
 </script>

@@ -1,15 +1,12 @@
 <template>
-    <form method="POST" action="/">
+    <Header></Header>
+    <form class="container" method="POST" action="login.php">
         <!-- Email input -->
         <div class="form-outline mb-4">
             <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Email" />
 
         </div>
 
-        <div class="form-outline mb-4">
-            <input type="" name="username" id="form2Example1" class="form-control" placeholder="Username" />
-
-        </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
@@ -20,16 +17,22 @@
 
 
         <!-- Submit button -->
-        <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Register</button>
+        <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Login</button>
 
         <!-- Register buttons -->
         <div class="text-center">
-            <p>Aleardy a member? <a href="/Auth/login">Login</a></p>
+            <p>a new member? Create an acount<a href="register.php"> Register</a></p>
 
 
 
         </div>
     </form>
 </template>
+
+<!-- scripts -->
 <script setup>
-</script>
+/**
+ * imports
+ */
+  import Header from '@/Components/Header.vue'
+  </script>

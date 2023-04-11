@@ -17,9 +17,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/Blog/categories/categories.php">categories</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/Blog/posts/posts.php">list of posts</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/Blog/auth/logout.php">logout</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/categories/list') }}">categories</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/post/posts') }}">list of posts</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}">logout</a></li>
                     </ul>
                 </li>
                 {{-- <php else : ?> --}}
