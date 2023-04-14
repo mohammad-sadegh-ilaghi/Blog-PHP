@@ -1,5 +1,5 @@
 <template>
-    <Header></Header>
+    <Header title="Home page"></Header>
     <div class="conatiner m-5">
         <div class="row justify-content-center m-5">
             <div class="col-12">

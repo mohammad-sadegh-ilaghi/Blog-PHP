@@ -1,5 +1,5 @@
 <template>
-    <Header></Header>
+    <Header title="edit post"></Header>
     <div class="container px-4 px-lg-5 mx-5 text-ceneter">
 
         <form method="POST" action="" enctype="multipart/form-data">

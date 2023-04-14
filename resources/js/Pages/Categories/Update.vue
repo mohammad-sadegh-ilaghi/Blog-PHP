@@ -1,5 +1,5 @@
 <template>
-    <Header></Header>
+    <Header title="update category"></Header>
     <form method="POST" action="" class="conatiner mx-4" enctype="multipart/form-data">
         <!-- Email input -->
         <div class="form-outline mb-4">

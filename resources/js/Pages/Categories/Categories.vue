@@ -1,5 +1,5 @@
 <template>
-    <Header ></Header>
+    <Header title="List of categories"  />
     <div class="row ">
         <a class="btn btn-primary" href="create.php">create</a>
     </div>

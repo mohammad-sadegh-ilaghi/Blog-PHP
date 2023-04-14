@@ -36,5 +36,5 @@ Route::get('/categories/update', [CategoryController::class, 'update']);
 // Post
 Route::get('/post/create', [PostsController::class, 'create']);
 Route::get('/post/update', [PostsController::class, 'update']);
-Route::get('/post/post/{id}', [PostsController::class, 'post']);
+Route::get('/post/{id}', [PostsController::class, 'post']);
 Route::get('/post/posts', [PostsController::class, 'posts']);

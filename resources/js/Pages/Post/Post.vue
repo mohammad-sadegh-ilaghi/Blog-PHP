@@ -1,5 +1,5 @@
 <template>
-    <Header ></Header>
+    <Header title="post title" describes="describes of post"></Header>
     <article class="container mx-4 mb-4 ">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">

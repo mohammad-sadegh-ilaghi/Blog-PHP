@@ -1,5 +1,5 @@
 <template>
-  <Header></Header>
+  <Header title="list of posts"></Header>
   <div class="container ">
     <div class="row mx-4 justify-content-center ">
       <a href="create.php" class=" col-6 mb-5 btn btn-primary">create</a>

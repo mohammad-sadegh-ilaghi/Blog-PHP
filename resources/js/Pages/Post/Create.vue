@@ -1,6 +1,6 @@
 
 <template>
-    <Header></Header>
+    <Header title="create post"></Header>
     <!-- <form method="POST" action="" enctype="multipart/form-data"> -->
     <form class="container mx-4 text-ceneter">
         <!-- Email input -->

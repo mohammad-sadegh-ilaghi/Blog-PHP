@@ -1,5 +1,5 @@
 <template>
-    <Header ></Header>
+    <Header title="create category"></Header>
     <form method="POST" action="" class="conatiner mx-4" enctype="multipart/form-data">
         <!-- Email input -->
         <div class="form-outline mb-4">
