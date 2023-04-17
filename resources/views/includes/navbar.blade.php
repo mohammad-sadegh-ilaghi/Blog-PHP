@@ -9,9 +9,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
                 {{-- <php //if(isset($_SESSION['username'])): ?> --}}
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog/index.php">Home</a></li>
-                @auth
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog/posts/create.php">create</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+                {{-- @auth --}}
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/post/create">create</a></li>
                 <li class="nav-item dropdown mt-3">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{-- <php echo $_SESSION['username']; ?> --}}
@@ -23,15 +23,15 @@
                         <li><a class="dropdown-item" href="{{ url('/logout') }}">logout</a></li>
                     </ul>
                 </li>
-               @endauth
+               {{-- @endauth --}}
                
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
-                @if(! Auth::user())
+                {{-- @if(! Auth::user()) --}}
                     {{-- <php else : ?> --}}
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog/auth/login.php">login</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog/auth/register.php">register</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/login">login</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/register">register</a></li>
                     {{-- <php endif; ?> --}}
-                @endif
+                {{-- @endif --}}
             </ul>
         </div>
     </div>

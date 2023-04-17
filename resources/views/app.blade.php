@@ -16,7 +16,9 @@
   </head>
   <body >
     @include('includes.navbar')
-    @inertia
+    <div class="container-fluid justify-content-center">
+      @inertia
+    </div>
     @include('includes.footer')
             <!-- Bootstrap core JS-->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -13,7 +13,7 @@ class PostsController extends Controller
     public function post($id){
         return Inertia::render('Post/Post');
     }
-    public function update(){
+    public function update($id){
         return Inertia::render('Post/Update');
     }
     public function posts(){
